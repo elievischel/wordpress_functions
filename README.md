@@ -1,6 +1,6 @@
 
-
-//Auto add and update Title field from ACF:
+If the title should be named after ACF fields, it will add and update the field title from the ACF
+Auto add and update Title field from ACF:
 
 	function my_post_title_updater( $post_id ) {
 		$my_post = array();
