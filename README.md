@@ -1,5 +1,5 @@
 ## If the title should be named after ACF fields, it will add and update the field title from the ACF
-Auto add and update Title field from ACF:
+### Auto add and update Title field from ACF:
 
 	function my_post_title_updater( $post_id ) {
 		$my_post = array();
@@ -129,3 +129,14 @@ Auto add and update Title field from ACF:
 
 	}
 	add_filter('acf/update_value/name=putherethenameoftheACF', 'bidirectional_acf_update_value', 10, 3);
+
+## auto set featured image from ACF field image
+
+    function acf_set_featured_image( $value, $post_id, $field  ){
+	if($value != ''){
+		//Add the value which is the image ID to the _thumbnail_id meta data for the current post
+		add_post_meta($post_id, '_thumbnail_id', $value);
+	}
+	return $value;
+    }
+	add_filter('acf/update_value/name=putherethenameoftheACFIMAGEFIELD', 'acf_set_featured_image', 10, 3);
